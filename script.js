@@ -67,7 +67,7 @@ getPriceBtc();
 
 setInterval(() => {
   getPriceBtc();
-}, 100000);
+}, 900000);
 
 
 
