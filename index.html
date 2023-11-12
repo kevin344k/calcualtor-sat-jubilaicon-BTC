@@ -10,10 +10,29 @@
 
 <body>
     <pre id="result"></pre>
+   <div class="container-fluid d-flex justify-content-between align-items-center col-md-3 ">
+  
+   <div class="d-flex justify-content-around align-items-center">
+    <img style="height: 35px;" class="w-25" src="./bitcoin-btc-logo (1).svg" alt="btc-svg">
+    <p class="m-0">BTC</p>
+    <P class="text-secondary m-0">Bitcoin</P>
+   </div>
+   <span>$</span>
+   <span class="m-0" id="btcPrice"></span>
+   </div>
 
 
     <!--Calculadora de satoshis-->
-    <div class="container-fluid">
+    <div class="container-fluid col-md-6">
+        <div class="input-group mb-3">
+            <div class="form-floating">
+                <input id="input-USD" type="text" class="form-control color-gray" id="floatingInputGroup1"
+                    placeholder="Bitcoin">
+                <label for="floatingInputGroup1">USD</label>
+
+            </div>
+            <span class="input-group-text bg-success text-white">USD</span>
+        </div>
         <div class="input-group mb-3">
             <div class="form-floating">
                 <input id="input-BTC" type="text" class="form-control color-gray" id="floatingInputGroup1"
