@@ -1,8 +1,7 @@
 const express =require("express")
 const app=express()
-const port=3000 || process.env.PORT
 
-
+app.set("port", process.env.PORT || 4000);
 
 app.get('/',(req,res)=>{  //cuando el clinte colocite acceso a la ruta primcipal el servidor va a escuchar con get
     res.sendFile('./public/index.html',{
@@ -13,7 +12,7 @@ app.get('/',(req,res)=>{  //cuando el clinte colocite acceso a la ruta primcipal
    }
 })
 
-app.listen(port,()=>{
-  console.log("server is running on port",port)
+app.listen(app.get("port"),()=>{
+  console.log("server is running on port",app.get("port"))
 
 })
