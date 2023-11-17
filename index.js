@@ -7,7 +7,7 @@ const port=3000 || process.env.PORT
 app.use(express.static("public"))
 
 app.get("/",(req,res)=>{
-  res.send("index.html")
+  res.render(index.html)
 })
 
 
