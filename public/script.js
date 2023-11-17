@@ -2,6 +2,7 @@ const inputBTC = document.querySelector("#input-BTC");
 const inputSAT = document.querySelector("#input-sat");
 const inputAnioJ = document.querySelector("#Input_anioJub");
 const input_USD = document.querySelector("#input-USD");
+const span_btc_price=document.querySelector("#btcPrice")
 const init = async () => {
   const {
     bitcoin: { blocks },
@@ -65,18 +66,18 @@ function getPriceBtc() {
 }
 getPriceBtc();
 */
-const btcPrice = async () => {
+const getbtcPrice = async () => {
   const response = await fetch("https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT");
   const data = await response.json();
   const price = Number(data.price);
-  document.querySelector("#btcPrice").textContent = price.toFixed(3);
+  span_btc_price.textContent = price.toFixed(3);
 
 };
 
-btcPrice();
+getbtcPrice();
 
 setInterval(() => {
-  btcPrice();
+  getbtcPrice();
 }, 900000);
 
 
@@ -109,11 +110,12 @@ function calculate(typeInput) {
 inputBTC.addEventListener("input", () => {
 
 calculate(inputBTC);
-input_USD.value=inputBTC.value*btcPrice.textContent
+input_USD.value=inputBTC.value*span_btc_price.textContent
 
 });
 input_USD.addEventListener("input", () => {
-    inputBTC.value=input_USD.value/btcPrice.textContent
+  
+    inputBTC.value=input_USD.value/span_btc_price.textContent
     calculate(input_USD)
     console.log(input_USD.value);
    
