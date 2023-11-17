@@ -65,13 +65,13 @@ function getPriceBtc() {
 }
 getPriceBtc();
 */
-const btcPrice = (async () => {
+const btcPrice = async () => {
   const response = await fetch("https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT");
   const data = await response.json();
   const price = Number(data.price);
   document.querySelector("#btcPrice").textContent = price.toFixed(3);
 
-});
+};
 
 btcPrice();
 
