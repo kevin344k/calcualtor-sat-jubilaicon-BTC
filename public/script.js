@@ -54,7 +54,7 @@ console.log(today);
 //1 bitcoin = 100,000,000 satoshis
 
 //obtain the price of BTC from BINANCE API
-
+/*
 function getPriceBtc() {
   fetch("https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT")
     .then((res) => res.json())
@@ -64,9 +64,19 @@ function getPriceBtc() {
     });
 }
 getPriceBtc();
+*/
+const btcPrice = (async () => {
+  const response = await fetch("https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT");
+  const data = await response.json();
+  const price = Number(data.price);
+  document.querySelector("#btcPrice").textContent = price.toFixed(3);
+
+});
+
+btcPrice();
 
 setInterval(() => {
-  getPriceBtc();
+  btcPrice();
 }, 900000);
 
 
